@@ -1,0 +1,48 @@
+function my_spaceship(coord) {
+    let x = 0;
+    let y = 0;
+    let direction = "up";
+    for (i = 0; i < coord.length; i++){
+        if (coord[i] == "R" || coord[i] == "L"){
+            if (direction == "up" && coord[i] == "R"){
+                direction = "right";
+            }
+            else if (direction == "up" && coord[i] == "L"){
+                direction = "left";
+            }
+            else if (direction == "right" && coord[i] == "R"){
+                direction = "down";
+            }
+            else if (direction == "right" && coord[i] == "L"){
+                direction = "up";
+            }
+            else if (direction == "left" && coord[i] == "R"){
+                direction = "up";
+            }
+            else if (direction == "left" && coord[i] == "L"){
+                direction = "down";
+            }
+            else if (direction == "down" && coord[i] == "L"){
+                direction = "right";
+            }
+            else if (direction == "down" && coord[i] == "R"){
+                direction = "left";
+            }
+        }
+        else if (coord[i] == "A"){
+            if (direction == "up"){
+                y--;
+            }
+            else if (direction == "down"){
+                y++;
+            }
+            else if (direction == "left"){
+                x--;
+            }
+            else if (direction == "right"){
+                x++;
+            }
+        }
+    }
+    return `{x: ${x}, y: ${y}, direction: '${direction}'}`;
+}
